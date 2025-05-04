@@ -1,6 +1,7 @@
 package com.example.lesson_15_email;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,9 @@ public class UserController {
         if (confirmationResult) {
             return ResponseEntity.ok("Confirmation ok");
         } else {
-            return ResponseEntity.ok("Invalid confirmation code");
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Invalid confirmation code");
         }
     }
 
