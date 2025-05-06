@@ -30,7 +30,7 @@ public class UserService {
 
     }
 
-    public boolean receiveConfirmation(String code) {
+    public boolean receiveConfirmationCode(String code) {
         User userByCode = repository.findByConfirmationCode(code)
                 .orElseThrow(() -> new IllegalArgumentException("User with code " + code + " not found"));
 

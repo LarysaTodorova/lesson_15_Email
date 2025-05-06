@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/confirmation")
     public ResponseEntity<String> confirmation(@RequestParam String code) {
-        boolean confirmationResult = service.receiveConfirmation(code);
+        boolean confirmationResult = service.receiveConfirmationCode(code);
 
         if (confirmationResult) {
             return ResponseEntity.ok("Confirmation ok");
